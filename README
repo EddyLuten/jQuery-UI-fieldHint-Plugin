@@ -1,0 +1,49 @@
+                    fieldHint Plugin for jQuery UI
+
+What does it do?
+----------------
+This jQuery UI plugin allows you to mask HTML input fields with some text while
+they are empty and don't have focus. The plugin reads the field's title
+attribute for the hint to display, or the hint may be supplied explicitly
+through an option.
+
+Usage
+-----
+Include the 'jquery.ui.fieldHint.js' file on your page. You can apply this
+plugin to either 'input' fields or 'textarea' fields like so:
+
+$(selector).fieldHint();
+
+Or with an optional options object:
+
+$(selector).fieldHint({
+  hint: 'Search...',
+  hintClass: 'someClass',
+  removeTitle: true
+});
+
+The 'hint' option sets the text to be displayed while the hint is visible if
+this is not supplied, the hint displayed defaults to the field's title attri-
+bute. The 'hintClass' option identifies the CSS class applied to the selected
+fields while the hint is visible. If you set 'removeTitle' to true, it will
+remove the title attribute from the field while the plugin is active.
+
+See the subdirectory 'tests' for usage samples.
+
+Prerequisites
+-------------
+This software has been built for and tested against:
+* jQuery 1.7.1
+* jQuery UI 1.8.16
+
+License
+-------
+Licensed under the MIT license, see 'jquery.ui.fieldHint.js' for details.
+
+Change Log
+----------
+2012-03-01: Initial release
+
+Authors
+-------
+Eddy Luten (eddyluten@gmail.com)

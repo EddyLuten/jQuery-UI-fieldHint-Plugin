@@ -1,0 +1,27 @@
+<html>
+<head>
+  <title>Options Test</title>
+  <style type="text/css">
+    .hint {
+      color: gray;
+    }
+  </style>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../jquery.ui.fieldHint.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('input, textarea').fieldHint({
+        hint: 'Please enter some text...',
+        hintClass: 'hint'
+      });
+    });
+  </script>
+</head>
+<body>
+<form action="">
+  <input type="text" name="test" /><br />
+  <textarea rows="4" cols="20"></textarea>
+</form>
+</body>
+</html>

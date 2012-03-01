@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Basic Test</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../jquery.ui.fieldHint.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('input, textarea').fieldHint();
+      });
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" name="test" title="Enter some text..." /><br />
+      <textarea rows="4" cols="20" title="this is the hint"></textarea>
+    </form>
+  </body>
+</html>
