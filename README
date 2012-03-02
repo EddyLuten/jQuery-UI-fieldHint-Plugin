@@ -19,14 +19,20 @@ Or with an optional options object:
 $(selector).fieldHint({
   hint: 'Search...',
   hintClass: 'someClass',
-  removeTitle: true
+  removeTitle: true,
+  clearOnSubmit: false
 });
 
 The 'hint' option sets the text to be displayed while the hint is visible if
 this is not supplied, the hint displayed defaults to the field's title attri-
-bute. The 'hintClass' option identifies the CSS class applied to the selected
-fields while the hint is visible. If you set 'removeTitle' to true, it will
-remove the title attribute from the field while the plugin is active.
+bute.
+The 'hintClass' option identifies the CSS class applied to the selected fields
+while the hint is visible.
+If you set 'removeTitle' to true, it will remove the title attribute from the
+field while the plugin is active.
+If you set 'clearOnSubmit' to false, the hint values will not clear when the
+form is submitted. This can be a handy setting for when you want to override
+$.fn.val with your own function.
 
 See the subdirectory 'tests' for usage samples.
 

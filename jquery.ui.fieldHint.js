@@ -25,7 +25,8 @@
     options: {
       hint: null,
       hintClass: null,
-      removeTitle: false
+      removeTitle: false,
+      clearOnSubmit: true
     },
 
     _create: function() {
@@ -36,7 +37,9 @@
 
       // Add a submit handler to make sure that the hint is not submitted:
       this.closestForm = this.element.closest('form');
-      this.closestForm.bind('submit', data, this._formSubmit);
+
+      if (!!!this.options.clearOnSubmit)
+        this._setSubmitHandler();
 
       this.element.bind('focus', data, this._elementFocus);
       this.element.bind('blur', data, this._elementBlur);
@@ -64,6 +67,20 @@
 
       if (this.element.val() == this.getHint())
         this.element.val('');
+    },
+
+    // Sets the submit handler that clears out hint values on submit
+    _setSubmitHandler: function() {
+      if (!this.submitHandlerSet) {
+        this.closestForm.bind('submit', { ref: this }, this._formSubmit);
+        this.submitHandlerSet = true;
+      }
+    },
+
+    // Removes the submit handler
+    _removeSubmitHandler: function() {
+      if (this.submitHandlerSet)
+        this.closestForm.unbind('submit', this._formSubmit);
     },
 
     // Removes the title attribute from the field
@@ -148,6 +165,13 @@
           // previously removed:
             this._restoreTitle();
           break;
+
+        case 'clearOnSubmit':
+          if (!!value)
+           this._setSubmitHandler();
+          else
+            this._removeSubmitHandler();
+          break;
       }
 
       $.Widget.prototype._setOption.call(this, key, value);
@@ -161,7 +185,7 @@
       // Remove the event bindings
       this.element.unbind('focus', this._elementFocus);
       this.element.unbind('blur', this._elementBlur);
-      this.closestForm.unbind('submit', this._formSubmit);
+      this._removeSubmitHandler();
 
       $.Widget.prototype.destroy.call(this);
     }
