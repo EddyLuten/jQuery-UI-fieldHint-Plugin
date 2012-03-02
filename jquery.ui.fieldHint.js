@@ -38,7 +38,7 @@
       // Add a submit handler to make sure that the hint is not submitted:
       this.closestForm = this.element.closest('form');
 
-      if (!!!this.options.clearOnSubmit)
+      if (!!this.options.clearOnSubmit)
         this._setSubmitHandler();
 
       this.element.bind('focus', data, this._elementFocus);
